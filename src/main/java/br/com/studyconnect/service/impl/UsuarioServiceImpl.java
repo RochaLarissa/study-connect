@@ -3,8 +3,11 @@ package br.com.studyconnect.service.impl;
 import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.model.Usuario;
+import br.com.studyconnect.repository.InteresseUsuarioRepository;
 import br.com.studyconnect.repository.UsuarioGrupoRepository;
 import br.com.studyconnect.repository.UsuarioRepository;
+import br.com.studyconnect.service.InteresseUsuarioService;
+import br.com.studyconnect.service.UsuarioGrupoService;
 import br.com.studyconnect.service.UsuarioService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -16,29 +19,37 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
-    private final UsuarioGrupoRepository usuarioGrupoRepository;
+    private final UsuarioGrupoService usuarioGrupoService;
 
-    /*SEMPRE QUE EU FIZER UM SAVE OU UPDATE EM INTERESSE, EU VERIFICO SE EXISTE OUTRO USUARIO
-    * COM O MESMO INTERESSE [DISCIPLINA E TURNO]
-    * CASO HAJA, EU CRIO UM GRUPO OU ADD O USUARIO A UM GRUPO EXISTENTE */
+    private final InteresseUsuarioService interesseUsuarioService;
+
     @Override
-    public Usuario save(UsuarioRequest usuarioRequest) {
+    public UsuarioResponse save(UsuarioRequest usuarioRequest) {
         var usuario = Usuario.build(usuarioRequest);
-        return usuarioRepository.save(usuario);
+
+        var response = usuarioRepository.save(usuario);
+
+        return UsuarioResponse.build(response);
     }
 
     @Override
-    public Usuario update(Long id, UsuarioRequest usuarioRequest) {
+    public UsuarioResponse update(Long id, UsuarioRequest usuarioRequest) {
         var usuario = Usuario.build(usuarioRequest);
         usuario.setId(id);
-        return usuarioRepository.save(usuario);
+
+        var response = usuarioRepository.save(usuario);
+
+        return UsuarioResponse.build(response);
     }
 
     @Override
     public UsuarioResponse findCompleteById(Long id) {
         var usuario = usuarioRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
-        var usuarioGrupo = usuarioGrupoRepository.findAllByUsuarioId(id);
+        var interesseUsuario = interesseUsuarioService.findAllByInteresseId(id);
+        usuario.setInteressesUsuario(interesseUsuario);
+
+        var usuarioGrupo = usuarioGrupoService.findAllByUsuarioId(id);
         usuario.setUsuarioGrupos(usuarioGrupo);
 
         UsuarioResponse response = UsuarioResponse.build(usuario);

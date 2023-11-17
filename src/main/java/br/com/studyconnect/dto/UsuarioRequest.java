@@ -1,6 +1,7 @@
 package br.com.studyconnect.dto;
 
 import br.com.studyconnect.model.Interesse;
+import br.com.studyconnect.model.InteresseUsuario;
 import br.com.studyconnect.model.UsuarioGrupo;
 import lombok.Data;
 
@@ -19,5 +20,5 @@ public class UsuarioRequest {
 
     private String curso;
 
-    private List<Interesse> interesses;
+    private List<InteresseUsuario> interessesUsuario;
 }

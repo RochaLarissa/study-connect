@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/usuarios")
-public class UsuarioControllerImpl {
+public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
     @PostMapping
     public ResponseEntity<UsuarioResponse> save(@RequestBody UsuarioRequest request) {
         var usuario = usuarioService.save(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioResponse.build(usuario));
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
     @PutMapping("{id}")
     public ResponseEntity<UsuarioResponse> update(@PathVariable Long id,
                                                   @RequestBody UsuarioRequest request) {
         var usuario = usuarioService.update(id, request);
-        return ResponseEntity.ok().body(UsuarioResponse.build(usuario));
+        return ResponseEntity.ok().body(usuario);
     }
 
     @GetMapping("{id}")

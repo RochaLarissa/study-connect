@@ -1,5 +1,6 @@
 package br.com.studyconnect.dto;
 
+import br.com.studyconnect.model.InteresseUsuario;
 import br.com.studyconnect.model.Usuario;
 import br.com.studyconnect.model.UsuarioGrupo;
 import lombok.Builder;
@@ -20,6 +21,9 @@ public class UsuarioResponse {
     private String curso;
 
     private List<UsuarioGrupo> usuarioGrupos;
+
+    private List<InteresseUsuario> interessesUsuario;
+
     public static UsuarioResponse build(Usuario usuario) {
         return UsuarioResponse.builder()
                 .id(usuario.getId())

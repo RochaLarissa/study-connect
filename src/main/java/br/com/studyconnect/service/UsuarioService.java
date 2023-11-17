@@ -6,9 +6,9 @@ import br.com.studyconnect.model.Usuario;
 
 public interface UsuarioService {
 
-    Usuario save(UsuarioRequest sindicoRequest);
+    UsuarioResponse save(UsuarioRequest usuarioRequest);
 
-    Usuario update(Long id, UsuarioRequest sindicoRequest);
+    UsuarioResponse update(Long id, UsuarioRequest usuarioRequest);
 
     UsuarioResponse findCompleteById(Long id);
 

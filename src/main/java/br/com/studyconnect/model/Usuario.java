@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Builder
 @Data
@@ -35,11 +34,17 @@ public class Usuario {
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Interesse> interesses;
+    private List<InteresseUsuario> interessesUsuario;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<UsuarioGrupo> usuarioGrupos;
+
+    public static Usuario build(Long id) {
+        return Usuario.builder()
+                .id(id)
+                .build();
+    }
 
     public static Usuario build(UsuarioRequest request) {
         return Usuario.builder()
@@ -48,7 +53,7 @@ public class Usuario {
                 .nome(request.getNome())
                 .senha(request.getSenha())
                 .curso(request.getCurso())
-                .interesses(request.getInteresses())
+                .interessesUsuario(request.getInteressesUsuario())
                 .build();
     }
 

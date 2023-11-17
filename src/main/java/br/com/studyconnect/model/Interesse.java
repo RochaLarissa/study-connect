@@ -1,15 +1,11 @@
 package br.com.studyconnect.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.com.studyconnect.dto.InteresseRequest;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.List;
-
+@Builder
 @Data
 @Entity
 @AllArgsConstructor
@@ -27,5 +23,19 @@ public class Interesse {
 
     @Column(nullable = false)
     private String turno;
+
+    public static Interesse build(Long id) {
+        return Interesse.builder()
+                .id(id)
+                .build();
+    }
+
+    public static Interesse build(InteresseRequest request) {
+        return Interesse.builder()
+                .id(request.getId())
+                .disciplina(request.getDisciplina())
+                .turno(request.getTurno())
+                .build();
+    }
 
 }
