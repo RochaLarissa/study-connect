@@ -7,6 +7,8 @@ import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.model.Interesse;
 import br.com.studyconnect.model.Usuario;
 
+import java.util.List;
+
 public interface InteresseService {
 
     InteresseResponse save(InteresseRequest interesseRequest);
@@ -14,6 +16,8 @@ public interface InteresseService {
     InteresseResponse update(Long id, InteresseRequest interesseRequest);
 
     InteresseResponse findCompleteById(Long id);
+
+    List<InteresseResponse> findAll();
 
     void deleteById(Long id);
 }

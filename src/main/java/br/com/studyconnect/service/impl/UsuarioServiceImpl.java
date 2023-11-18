@@ -3,8 +3,6 @@ package br.com.studyconnect.service.impl;
 import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.model.Usuario;
-import br.com.studyconnect.repository.InteresseUsuarioRepository;
-import br.com.studyconnect.repository.UsuarioGrupoRepository;
 import br.com.studyconnect.repository.UsuarioRepository;
 import br.com.studyconnect.service.InteresseUsuarioService;
 import br.com.studyconnect.service.UsuarioGrupoService;

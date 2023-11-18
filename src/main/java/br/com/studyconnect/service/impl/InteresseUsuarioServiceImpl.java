@@ -1,8 +1,8 @@
 package br.com.studyconnect.service.impl;
 
-import br.com.studyconnect.events.InteresseUsuarioSavedEvent;
 import br.com.studyconnect.dto.InteresseUsuarioRequest;
 import br.com.studyconnect.dto.InteresseUsuarioResponse;
+import br.com.studyconnect.events.InteresseUsuarioSavedEvent;
 import br.com.studyconnect.model.InteresseUsuario;
 import br.com.studyconnect.repository.InteresseUsuarioRepository;
 import br.com.studyconnect.service.InteresseUsuarioService;
@@ -31,16 +31,6 @@ public class InteresseUsuarioServiceImpl implements InteresseUsuarioService {
         eventPublisher.publishEvent(new InteresseUsuarioSavedEvent(savedInteresseUsuario));
 
         return InteresseUsuarioResponse.build(savedInteresseUsuario);
-    }
-
-    @Override
-    public InteresseUsuarioResponse update(Long id, InteresseUsuarioRequest interesseUsuarioRequest) {
-        var interesseUsuario = InteresseUsuario.build(interesseUsuarioRequest);
-        interesseUsuario.setId(id);
-
-        var response = interesseUsuarioRepository.save(interesseUsuario);
-
-        return InteresseUsuarioResponse.build(response);
     }
 
     @Override

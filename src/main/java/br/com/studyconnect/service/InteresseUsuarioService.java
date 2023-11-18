@@ -10,8 +10,6 @@ public interface InteresseUsuarioService {
 
     InteresseUsuarioResponse save(InteresseUsuarioRequest interesseUsuarioRequest);
 
-    InteresseUsuarioResponse update(Long id, InteresseUsuarioRequest interesseUsuarioRequest);
-
     InteresseUsuarioResponse findCompleteById(Long id);
 
     List<InteresseUsuario> findAllByInteresseId(Long id);

@@ -10,6 +10,8 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class InteresseServiceImpl implements InteresseService {
@@ -38,6 +40,12 @@ public class InteresseServiceImpl implements InteresseService {
     public InteresseResponse findCompleteById(Long id) {
         var interesse = interesseRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         return InteresseResponse.build(interesse);
+    }
+
+    @Override
+    public List<InteresseResponse> findAll() {
+        var interesses = interesseRepository.findAll();
+        return InteresseResponse.build(interesses);
     }
 
     @Override

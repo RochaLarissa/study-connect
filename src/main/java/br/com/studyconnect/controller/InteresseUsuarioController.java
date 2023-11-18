@@ -20,13 +20,6 @@ public class InteresseUsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<InteresseUsuarioResponse> update(@PathVariable Long id,
-                                                  @RequestBody InteresseUsuarioRequest request) {
-        var interesseUsuario = interesseUsuarioService.update(id, request);
-        return ResponseEntity.ok().body(interesseUsuario);
-    }
-
     @GetMapping("{id}")
     public ResponseEntity<InteresseUsuarioResponse> findCompleteById(@PathVariable Long id) {
         var usuario = interesseUsuarioService.findCompleteById(id);
