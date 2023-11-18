@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GrupoRepository extends JpaRepository<Grupo, Long>{
 
+    Grupo findByInteresseId(Long interesseId);
+
 }

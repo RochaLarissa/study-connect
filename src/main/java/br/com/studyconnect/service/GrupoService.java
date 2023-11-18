@@ -3,7 +3,9 @@ package br.com.studyconnect.service;
 import br.com.studyconnect.dto.GrupoRequest;
 import br.com.studyconnect.dto.GrupoResponse;
 import br.com.studyconnect.dto.UsuarioRequest;
+import br.com.studyconnect.model.Grupo;
 import br.com.studyconnect.model.Interesse;
+import br.com.studyconnect.model.Usuario;
 
 public interface GrupoService {
 
@@ -13,7 +15,7 @@ public interface GrupoService {
 
     GrupoResponse findCompleteById(Long id);
 
-    void verificaGrupos(Interesse interesse);
+    Grupo verificaGrupos(Interesse interesse, Usuario novoUsuario);
 
     void deleteById(Long id);
 }

@@ -30,4 +30,9 @@ public class UsuarioGrupoServiceImpl implements UsuarioGrupoService {
         return usuarioGrupoRepository.findAllByUsuarioId(usuarioId);
     }
 
+    @Override
+    public Boolean existsByUsuarioAndGrupo(Long usuarioId, Long grupoId) {
+        return usuarioGrupoRepository.existsByUsuarioIdAndGrupoId(usuarioId, grupoId);
+    }
+
 }
