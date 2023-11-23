@@ -16,13 +16,13 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="#">
+                <form id="loginForm" action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Coloque seu E-mail" required>
+                        <input type="text" id="emailInput" placeholder="Coloque seu E-mail" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Coloque sua Senha" required>
+                        <input type="password" id="passwordInput" class="password" placeholder="Coloque sua Senha" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Login">
+                        <input type="button" value="Login" onclick="performLogin()">
                     </div>
                 </form>
 
