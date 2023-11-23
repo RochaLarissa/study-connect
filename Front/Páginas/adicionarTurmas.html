@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="../Style/home.css">
+    <link rel="stylesheet" href="../Style/adicionarTurmas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-         
     <title>Login e Registration</title> 
 </head>
 <body>
@@ -42,30 +40,36 @@
         </ul>
     </nav>
 
-    <div class="main-container">
-        <div class="image-container">
-            <h1>Turmas de Estudos disponíveis</h1>
-            <a href="adicionarTurmas.html">
-                <img src="../Style/IMG/img1.png" alt="Grupo de estudos">
-            </a>
+    <div class="container">
+        <div class="header-container">
+            <h1>Adicionar Interesses</h1>
+            <h4>Caso não haja uma turma, será criado uma.</h4>
         </div>
-        <div class="image-container">
-            <h1>Meus Grupos de estudos</h1>
-            <a href="link-para-segunda-pagina.html">
-                <img src="../Style/IMG/img2.png" alt="Aluno">
-            </a>
-        </div>
-        <div class="image-container">
-            <h1>Adicionar Interesses de Estudo</h1>
-            <a href="adicionarTurmas.html">
-                <img src="../Style/IMG/img3.png" alt="Aluno adicionando interesses de estudo">
-            </a>
-        </div>
-
-
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="subject">Disciplinas:</label>
+                <select id="subject" name="subject">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="shift">Turno:</label>
+                <select id="shift" name="shift">
+                    <option value="morning">Manhã</option>
+                    <option value="afternoon">Tarde</option>
+                    <option value="evening">Noite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="modality">Modalidade:</label>
+                <select id="modality" name="modality">
+                    <option value="ead">EAD</option>
+                    <option value="presential">Presencial</option>
+                </select>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
     </div>
-    
 
-     <script src="../Scripts/scriptHome.js"></script> 
+    <script src="../Scripts/adicionarTurmas.js"></script> 
 </body>
 </html>

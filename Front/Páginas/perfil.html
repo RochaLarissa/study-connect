@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="../Style/home.css">
+    <link rel="stylesheet" href="../Style/perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-         
     <title>Login e Registration</title> 
 </head>
 <body>
@@ -41,31 +39,36 @@
             </li>
         </ul>
     </nav>
-
-    <div class="main-container">
-        <div class="image-container">
-            <h1>Turmas de Estudos disponíveis</h1>
-            <a href="adicionarTurmas.html">
-                <img src="../Style/IMG/img1.png" alt="Grupo de estudos">
-            </a>
-        </div>
-        <div class="image-container">
-            <h1>Meus Grupos de estudos</h1>
-            <a href="link-para-segunda-pagina.html">
-                <img src="../Style/IMG/img2.png" alt="Aluno">
-            </a>
-        </div>
-        <div class="image-container">
-            <h1>Adicionar Interesses de Estudo</h1>
-            <a href="adicionarTurmas.html">
-                <img src="../Style/IMG/img3.png" alt="Aluno adicionando interesses de estudo">
-            </a>
-        </div>
-
-
+    <div class="profile-container">
+        <h1>Perfil do Usuário</h1>
+        <form action="#" method="POST">
+            <div class="input-field">
+                <label for="fullName">Nome Completo:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Seu nome completo" required>
+                <i class="uil uil-user"></i>
+            </div>
+            <div class="input-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Seu email" required>
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <div class="input-field">
+                <label for="newPassword">Nova Senha:</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Nova senha">
+                <i class="uil uil-lock icon"></i>
+            </div>
+            <div class="input-field">
+                <label for="confirmPassword">Confirme a Nova Senha:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme a nova senha">
+                <i class="uil uil-lock icon"></i>
+            </div>
+            <div class="input-field button">
+                <input type="submit" value="Atualizar Perfil">
+            </div>
+        </form>
     </div>
-    
 
-     <script src="../Scripts/scriptHome.js"></script> 
+
+    <script src="../Scripts/perfil.js"></script> 
 </body>
 </html>
