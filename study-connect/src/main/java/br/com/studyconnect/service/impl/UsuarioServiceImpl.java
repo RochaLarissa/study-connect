@@ -44,11 +44,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public UsuarioResponse findCompleteById(Long id) {
         var usuario = usuarioRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
-        var interesseUsuario = interesseUsuarioService.findAllByUsuarioId(id);
-        usuario.setInteressesUsuario(interesseUsuario);
-
-        var usuarioGrupo = usuarioGrupoService.findAllByUsuarioId(id);
-        usuario.setUsuarioGrupos(usuarioGrupo);
+//        var interesseUsuario = interesseUsuarioService.findAllByUsuarioId(id);
+//        usuario.setInteressesUsuario(interesseUsuario);
+//
+//        var usuarioGrupo = usuarioGrupoService.findAllByUsuarioId(id);
+//        usuario.setUsuarioGrupos(usuarioGrupo);
 
         UsuarioResponse response = UsuarioResponse.build(usuario);
         return response;

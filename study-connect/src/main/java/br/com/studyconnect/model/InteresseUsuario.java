@@ -25,7 +25,7 @@ public class InteresseUsuario {
     @NotNull
     @JoinColumn(name = "id_interesse", referencedColumnName = "id", updatable = false,
             foreignKey = @ForeignKey(name = "INTERESSE_USUARIO_FK_INTERESSE"))
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Interesse interesse;
 
     @JsonIgnore

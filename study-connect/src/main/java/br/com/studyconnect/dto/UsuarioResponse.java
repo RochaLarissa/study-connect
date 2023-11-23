@@ -20,9 +20,6 @@ public class UsuarioResponse {
 
     private String curso;
 
-    private List<UsuarioGrupo> usuarioGrupos;
-
-    private List<InteresseUsuario> interessesUsuario;
 
     public static UsuarioResponse build(Usuario usuario) {
         return UsuarioResponse.builder()
@@ -30,7 +27,6 @@ public class UsuarioResponse {
                 .email(usuario.getEmail())
                 .nome(usuario.getNome())
                 .curso(usuario.getCurso())
-                .usuarioGrupos(usuario.getUsuarioGrupos())
                 .build();
     }
 }

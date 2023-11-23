@@ -18,6 +18,8 @@ public class InteresseUsuarioResponse {
     private InteresseResponse interesse;
 
     private UsuarioResponse usuario;
+
+
     public static InteresseUsuarioResponse build(InteresseUsuario interesseUsuario) {
         return InteresseUsuarioResponse.builder()
                 .id(interesseUsuario.getId())

@@ -1,6 +1,7 @@
 package br.com.studyconnect.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,10 +22,11 @@ public class UsuarioGrupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @NotNull
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", updatable = false,
             foreignKey = @ForeignKey(name = "USUARIO_GRUPO_FK_USUARIO"))
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
 
     @NotNull
