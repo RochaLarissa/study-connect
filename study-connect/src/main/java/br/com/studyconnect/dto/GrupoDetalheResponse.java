@@ -10,22 +10,26 @@ import java.util.List;
 
 @Builder
 @Data
-public class GrupoResponse {
+public class GrupoDetalheResponse {
 
     private Long id;
 
     private String descricao;
 
-    public static GrupoResponse build(Grupo grupo) {
-        return GrupoResponse.builder()
+    private InteresseResponse interesse;
+
+    private List<UsuarioResponse> usuarios;
+
+    public static GrupoDetalheResponse build(Grupo grupo) {
+        return GrupoDetalheResponse.builder()
                 .id(grupo.getId())
                 .descricao(grupo.getDescricao())
                 .build();
     }
 
-    public static List<GrupoResponse> build(List<Grupo> grupos) {
+    public static List<GrupoDetalheResponse> build(List<Grupo> grupos) {
         return !CollectionUtils.isEmpty(grupos)
-                ? grupos.stream().map(GrupoResponse::build).toList()
+                ? grupos.stream().map(GrupoDetalheResponse::build).toList()
                 : Collections.emptyList();
     }
 }

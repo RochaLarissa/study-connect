@@ -1,5 +1,6 @@
 package br.com.studyconnect.controller;
 
+import br.com.studyconnect.dto.UsuarioDetalheResponse;
 import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.service.UsuarioService;
@@ -28,7 +29,7 @@ public class UsuarioController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<UsuarioResponse> findCompleteById(@PathVariable Long id) {
+    public ResponseEntity<UsuarioDetalheResponse> findCompleteById(@PathVariable Long id) {
         var usuario = usuarioService.findCompleteById(id);
         return ResponseEntity.ok(usuario);
     }

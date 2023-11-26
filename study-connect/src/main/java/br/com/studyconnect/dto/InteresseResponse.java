@@ -20,6 +20,12 @@ public class InteresseResponse {
 
     private String tipo;
 
+    public static InteresseResponse build(Long id) {
+        return InteresseResponse.builder()
+                .id(id)
+                .build();
+    }
+
     public static InteresseResponse build(Interesse interesse) {
         return InteresseResponse.builder()
                 .id(interesse.getId())

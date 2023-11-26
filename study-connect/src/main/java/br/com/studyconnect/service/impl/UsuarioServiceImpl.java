@@ -1,9 +1,12 @@
 package br.com.studyconnect.service.impl;
 
-import br.com.studyconnect.dto.UsuarioRequest;
-import br.com.studyconnect.dto.UsuarioResponse;
+import br.com.studyconnect.dto.*;
+import br.com.studyconnect.model.Grupo;
+import br.com.studyconnect.model.Interesse;
 import br.com.studyconnect.model.Usuario;
 import br.com.studyconnect.repository.UsuarioRepository;
+import br.com.studyconnect.service.InteresseUsuarioService;
+import br.com.studyconnect.service.UsuarioGrupoService;
 import br.com.studyconnect.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +15,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -20,6 +25,10 @@ public class UsuarioServiceImpl implements UsuarioService,
         UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
+
+    private final InteresseUsuarioService interesseUsuarioService;
+
+    private final UsuarioGrupoService usuarioGrupoService;
 
 
     @Override
@@ -42,16 +51,27 @@ public class UsuarioServiceImpl implements UsuarioService,
     }
 
     @Override
-    public UsuarioResponse findCompleteById(Long id) {
-        var usuario = usuarioRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    public UsuarioDetalheResponse findCompleteById(Long id) {
+        var usuario = usuarioRepository.findCompleteById(id).orElseThrow(EntityNotFoundException::new);
 
-//        var interesseUsuario = interesseUsuarioService.findAllByUsuarioId(id);
-//        usuario.setInteressesUsuario(interesseUsuario);
-//
-//        var usuarioGrupo = usuarioGrupoService.findAllByUsuarioId(id);
-//        usuario.setUsuarioGrupos(usuarioGrupo);
+        var interesseUsuario = interesseUsuarioService.findAllByUsuarioId(id);
+        List<InteresseResponse> interesses = new ArrayList<>();
+        interesseUsuario.forEach(iu -> {
+            var interesse = InteresseResponse.build(iu.getInteresse());
+            interesses.add(interesse);
+        });
 
-        UsuarioResponse response = UsuarioResponse.build(usuario);
+        var usuarioGrupo = usuarioGrupoService.findAllByUsuarioId(id);
+        List<GrupoResponse> grupos = new ArrayList<>();
+        usuarioGrupo.forEach(ug -> {
+            var grupo = GrupoResponse.build(ug.getGrupo());
+            grupos.add(grupo);
+        });
+
+        UsuarioDetalheResponse response = UsuarioDetalheResponse.build(usuario);
+        response.setInteresses(interesses);
+        response.setGrupos(grupos);
+
         return response;
     }
 

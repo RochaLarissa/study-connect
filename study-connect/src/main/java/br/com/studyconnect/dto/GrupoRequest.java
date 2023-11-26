@@ -12,7 +12,4 @@ public class GrupoRequest {
 
     private String descricao;
 
-    private InteresseRequest interesse;
-
-    private List<UsuarioGrupo> usuarioGrupos;
 }

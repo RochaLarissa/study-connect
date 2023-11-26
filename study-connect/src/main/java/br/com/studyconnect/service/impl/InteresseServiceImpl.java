@@ -2,6 +2,7 @@ package br.com.studyconnect.service.impl;
 
 import br.com.studyconnect.dto.InteresseRequest;
 import br.com.studyconnect.dto.InteresseResponse;
+import br.com.studyconnect.model.Grupo;
 import br.com.studyconnect.model.Interesse;
 import br.com.studyconnect.repository.InteresseRepository;
 import br.com.studyconnect.service.InteresseService;

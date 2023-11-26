@@ -1,5 +1,6 @@
 package br.com.studyconnect.service;
 
+import br.com.studyconnect.dto.UsuarioDetalheResponse;
 import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.model.Usuario;
@@ -11,7 +12,7 @@ public interface UsuarioService {
 
     UsuarioResponse update(Long id, UsuarioRequest usuarioRequest);
 
-    UsuarioResponse findCompleteById(Long id);
+    UsuarioDetalheResponse findCompleteById(Long id);
 
     Usuario buscarUsuarioPorId(Long idUsuario);
 

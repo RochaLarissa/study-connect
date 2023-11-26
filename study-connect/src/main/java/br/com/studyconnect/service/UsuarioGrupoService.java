@@ -14,6 +14,8 @@ public interface UsuarioGrupoService {
 
     List<UsuarioGrupo> findAllByUsuarioId(Long usuarioId);
 
+    List<UsuarioGrupo> findAllByGrupoId(Long grupoId);
+
     Boolean existsByUsuarioAndGrupo(Long usuarioId, Long grupoId);
 
 }

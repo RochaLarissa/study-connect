@@ -2,10 +2,13 @@ package br.com.studyconnect.model;
 
 
 import br.com.studyconnect.dto.GrupoRequest;
+import br.com.studyconnect.dto.InteresseResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.List;
 
 @Builder
@@ -25,7 +28,7 @@ public class Grupo {
     private String descricao;
 
     @JsonIgnore
-    @JoinColumn(name = "id_interesse", referencedColumnName = "id")
+    @JoinColumn(name = "id_interesse", referencedColumnName = "id", updatable = false)
     @OneToOne(fetch = FetchType.LAZY)
     private Interesse interesse;
 
@@ -42,8 +45,6 @@ public class Grupo {
         return Grupo.builder()
                 .id(request.getId())
                 .descricao(request.getDescricao())
-                .interesse(Interesse.build(request.getInteresse()))
-                .usuarioGrupos(request.getUsuarioGrupos())
                 .build();
     }
 }
