@@ -61,7 +61,6 @@ public class GrupoServiceImpl implements GrupoService {
     @Override
     @Transactional
     public Grupo verificaGrupos(Interesse interesse, Usuario novoUsuario) {
-        //TODO:findAll pode trazer mais de 1 result
         List<InteresseUsuario> usuariosInteressados = interesseUsuarioService.findAllByInteresseId(interesse.getId());
 
         if (usuariosInteressados.size() > 1) {

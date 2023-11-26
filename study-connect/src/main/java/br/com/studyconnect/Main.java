@@ -10,5 +10,5 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    //TODO: implementar segurança + aumentar os criterios de match + notificar o usuario
+    //TODO: aumentar os criterios de match + verificar a notificação ao usuario
 }

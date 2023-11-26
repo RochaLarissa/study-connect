@@ -11,7 +11,7 @@ O aluno também pode consultar os grupos já formados e ingressar neles.
 API baseada em Java e Spring Boot, Maven e banco MySql, com login seguro Spring Security e autenticação através de JWT.
 
 ### Preparando o ambiente
-Para rodar a API é necessário ter uma IDE como Intellij para rodar o projeto localmente, banco MySql instalado na máquina, bem como Postman para acessar os endpoints.
+Para rodar a API é necessário ter uma IDE como Intellij para rodar o projeto do Back-End localmente, banco MySql instalado na máquina, bem como Postman para acessar os endpoints.
 
 ### Endpoints disponíveis
 Todos os endpoints disponíveis estão anexados ao arquivo 'Projeto Postman' disponível no seguinte caminho study-connect > src > main > resources: Projeto Postman
