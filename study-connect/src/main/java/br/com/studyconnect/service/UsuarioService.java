@@ -2,6 +2,8 @@ package br.com.studyconnect.service;
 
 import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
+import br.com.studyconnect.model.Usuario;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UsuarioService {
 
@@ -11,5 +13,7 @@ public interface UsuarioService {
 
     UsuarioResponse findCompleteById(Long id);
 
-    void deleteById(Long id);
+    Usuario buscarUsuarioPorId(Long idUsuario);
+
+    Usuario buscarUsuarioPorEmail(String email);
 }

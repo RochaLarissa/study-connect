@@ -4,12 +4,11 @@ import br.com.studyconnect.dto.InteresseRequest;
 import br.com.studyconnect.dto.InteresseResponse;
 import br.com.studyconnect.model.Interesse;
 import br.com.studyconnect.repository.InteresseRepository;
-import br.com.studyconnect.repository.UsuarioGrupoRepository;
 import br.com.studyconnect.service.InteresseService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequiredArgsConstructor

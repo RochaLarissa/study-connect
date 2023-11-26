@@ -1,12 +1,12 @@
 package br.com.studyconnect.model;
 
 
-import br.com.studyconnect.dto.InteresseRequest;
 import br.com.studyconnect.dto.InteresseUsuarioRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Builder
 @Data

@@ -32,10 +32,4 @@ public class UsuarioController {
         var usuario = usuarioService.findCompleteById(id);
         return ResponseEntity.ok(usuario);
     }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        usuarioService.deleteById(id);
-        return ResponseEntity.ok().build();
-    }
 }

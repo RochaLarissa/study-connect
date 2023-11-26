@@ -10,11 +10,11 @@ import br.com.studyconnect.repository.GrupoRepository;
 import br.com.studyconnect.service.GrupoService;
 import br.com.studyconnect.service.InteresseUsuarioService;
 import br.com.studyconnect.service.UsuarioGrupoService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequiredArgsConstructor

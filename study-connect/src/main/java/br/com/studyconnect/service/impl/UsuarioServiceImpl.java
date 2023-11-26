@@ -4,22 +4,23 @@ import br.com.studyconnect.dto.UsuarioRequest;
 import br.com.studyconnect.dto.UsuarioResponse;
 import br.com.studyconnect.model.Usuario;
 import br.com.studyconnect.repository.UsuarioRepository;
-import br.com.studyconnect.service.InteresseUsuarioService;
-import br.com.studyconnect.service.UsuarioGrupoService;
 import br.com.studyconnect.service.UsuarioService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class UsuarioServiceImpl implements UsuarioService {
+public class UsuarioServiceImpl implements UsuarioService,
+        UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
 
-    private final UsuarioGrupoService usuarioGrupoService;
-
-    private final InteresseUsuarioService interesseUsuarioService;
 
     @Override
     public UsuarioResponse save(UsuarioRequest usuarioRequest) {
@@ -55,14 +56,28 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        existsById(id);
-        usuarioRepository.deleteById(id);
+    public Usuario buscarUsuarioPorId(Long idUsuario) {
+        Optional<Usuario> optional = usuarioRepository.findById(idUsuario);
+        if(optional.isEmpty()) {
+            throw new RuntimeException("Usuário não encontrado");
+        }
+        return optional.get();
     }
 
-    private void existsById(Long id) {
-        if (!usuarioRepository.existsById(id)) {
-            throw new EntityNotFoundException();
+    public Usuario buscarUsuarioPorEmail(String email) {
+        Optional<Usuario> optional = usuarioRepository.findByEmail(email);
+
+        if(optional.isEmpty()) {
+            throw new UsernameNotFoundException("Usuário não encontrado");
         }
+
+        return optional.get();
+
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return buscarUsuarioPorEmail(username);
+    }
+
 }

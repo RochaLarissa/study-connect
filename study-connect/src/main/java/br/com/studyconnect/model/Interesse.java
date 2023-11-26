@@ -2,8 +2,9 @@ package br.com.studyconnect.model;
 
 
 import br.com.studyconnect.dto.InteresseRequest;
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Builder
 @Data

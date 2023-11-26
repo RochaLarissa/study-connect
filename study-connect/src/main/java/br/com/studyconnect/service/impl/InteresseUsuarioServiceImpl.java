@@ -6,12 +6,12 @@ import br.com.studyconnect.events.InteresseUsuarioSavedEvent;
 import br.com.studyconnect.model.InteresseUsuario;
 import br.com.studyconnect.repository.InteresseUsuarioRepository;
 import br.com.studyconnect.service.InteresseUsuarioService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequiredArgsConstructor

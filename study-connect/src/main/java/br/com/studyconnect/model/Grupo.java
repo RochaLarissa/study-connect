@@ -3,9 +3,9 @@ package br.com.studyconnect.model;
 
 import br.com.studyconnect.dto.GrupoRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Builder
