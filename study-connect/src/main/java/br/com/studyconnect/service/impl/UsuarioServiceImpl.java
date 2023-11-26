@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -30,10 +31,14 @@ public class UsuarioServiceImpl implements UsuarioService,
 
     private final UsuarioGrupoService usuarioGrupoService;
 
+    private final PasswordEncoder passwordEncoder;
+
 
     @Override
     public UsuarioResponse save(UsuarioRequest usuarioRequest) {
         var usuario = Usuario.build(usuarioRequest);
+        usuario.setPrivilegio("USER");
+        usuario.setSenha(passwordEncoder.encode(usuarioRequest.getSenha()));
 
         var response = usuarioRepository.save(usuario);
 

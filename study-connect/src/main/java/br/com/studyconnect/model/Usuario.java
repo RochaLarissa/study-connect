@@ -7,6 +7,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -101,7 +102,6 @@ public class Usuario implements UserDetails {
                 .id(request.getId())
                 .email(request.getEmail())
                 .nome(request.getNome())
-                .senha(request.getSenha())
                 .curso(request.getCurso())
                 .interessesUsuario(request.getInteressesUsuario())
                 .build();

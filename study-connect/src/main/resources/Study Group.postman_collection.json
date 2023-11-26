@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "183b7120-ccdd-4a9d-b59f-d5f6f368ffca",
+		"name": "Study Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21083470",
+		"_collection_link": "https://galactic-trinity-121341.postman.co/workspace/My-Workspace~f05d5a28-855e-485c-81fc-b7dc991d6d9f/collection/21083470-183b7120-ccdd-4a9d-b59f-d5f6f368ffca?action=share&source=collection_link&creator=21083470"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"larissa@edu.unifor.com\",\r\n    \"senha\": \"1234\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth"
+							]
+						},
+						"description": "Usuários cadastrados na base de dados disponíveis:\n\n[vet1@gft.com](mailto:vet1@gft.com) (perfil Admin)\n\n[vet2@gft.com](mailto:vet2@gft.com) (perfil Admin)\n\n[cliente1@email.com](mailto:cliente1@email.com) (perfil User - Cliente id 1)\n\n[cliente2@email.com](mailto:cliente2@email.com) (perfil User - Cliente id 2)\n\nSenha igual para todos: 1234\n\nO token gerado deve ser utilizado em todas as requisições."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Novo Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"larissapero@gmail.com\",\r\n    \"nome\": \"Larissa Rocha\",\r\n    \"senha\": \"1234\",\r\n    \"curso\": \"Análise e Desenvolvimento de Sistemas Ead\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"larissapero@gmail.com\",\r\n    \"nome\": \"Larissa Pereira Rocha\",\r\n    \"senha\": \"123456\",\r\n    \"curso\": \"Análise e Desenvolvimento de Sistemas Ead\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Interesse",
+			"item": [
+				{
+					"name": "Novo Interesse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"disciplina\": \"PROGRAMAÇÃO FUNCIONAL\",\r\n    \"turno\": \"NOITE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/interesses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar interesse",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"larissapero@gmail.com\",\r\n    \"nome\": \"Larissa Pereira Rocha\",\r\n    \"senha\": \"123456\",\r\n    \"curso\": \"Análise e Desenvolvimento de Sistemas Ead\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/interesses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/interesses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/interesses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar interesse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiUHJvZ3JhbWFTVEFSVEVSIiwiZXhwIjoxNjU5MDQyMzQxfQ.VY7knoAv0PspStgDH33OMmM4hTUiHq-f5cu7r2cYr_0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/interesses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses",
+								"1"
+							]
+						},
+						"description": "É possível deletar um cachorro associado a um cliente. Esta ação deleta apenas o cachorro e o relacionamento, não o cliente.\n\nNão é possível deletar um cachorro associado a um atendimento. É necessário primeiro deletar todos os atendimentos associados.\n\nApenas usuários Admin podem deletar cachorros."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InteresseUsuario",
+			"item": [
+				{
+					"name": "Novo Interesse Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImlzcyI6IlByb2pldG9GaW5hbCIsImV4cCI6MTcwMDk3MTg1MX0.oVfnHvk9EfabHdd5s9rtp6A91-GMlDbdNxV07JAKZcQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"interesseId\": 2,\r\n    \"usuarioId\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/interesses-usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses-usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter todos por User id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/interesses-usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses-usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Interesse Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiUHJvZ3JhbWFTVEFSVEVSIiwiZXhwIjoxNjU5MDQyMzQxfQ.VY7knoAv0PspStgDH33OMmM4hTUiHq-f5cu7r2cYr_0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/interesses-usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"interesses-usuarios",
+								"1"
+							]
+						},
+						"description": "É possível deletar um cachorro associado a um cliente. Esta ação deleta apenas o cachorro e o relacionamento, não o cliente.\n\nNão é possível deletar um cachorro associado a um atendimento. É necessário primeiro deletar todos os atendimentos associados.\n\nApenas usuários Admin podem deletar cachorros."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grupo",
+			"item": [
+				{
+					"name": "Add Usuario ao Grupo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNCIsImlzcyI6IlByb2pldG9GaW5hbCIsImV4cCI6MTcwMDk2MzI1Mn0.0LCyVfWq8KsdRi9X3SzkS9VDP_CTHtqA3NIcd33WAN4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"larissapero@gmail.com\",\r\n    \"nome\": \"Larissa Rocha\",\r\n    \"senha\": \"123456\",\r\n    \"curso\": \"Análise e Desenvolvimento de Sistemas Ead\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/grupos/grupo-id/1/usuario-id/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"grupos",
+								"grupo-id",
+								"1",
+								"usuario-id",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Grupo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNCIsImlzcyI6IlByb2pldG9GaW5hbCIsImV4cCI6MTcwMDk2MzI1Mn0.0LCyVfWq8KsdRi9X3SzkS9VDP_CTHtqA3NIcd33WAN4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1 ,\r\n    \"descricao\": \"Olá, o nosso grupo de whatsapp é esse, entrem lá para informações sobre os encontros: http://wa.me/group/190131743177309\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/grupos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"grupos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNCIsImlzcyI6IlByb2pldG9GaW5hbCIsImV4cCI6MTcwMDk2MzI1Mn0.0LCyVfWq8KsdRi9X3SzkS9VDP_CTHtqA3NIcd33WAN4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/grupos/grupo-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"grupos",
+								"grupo-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNCIsImlzcyI6IlByb2pldG9GaW5hbCIsImV4cCI6MTcwMDk2OTMyMX0.tSNzukMSA2h9lDltqNi9phzlfOfE0bGdJn8uS_2L7rc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/grupos/usuario-id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"grupos",
+								"usuario-id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

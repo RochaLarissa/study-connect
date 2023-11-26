@@ -64,7 +64,7 @@ public class GrupoServiceImpl implements GrupoService {
         //TODO:findAll pode trazer mais de 1 result
         List<InteresseUsuario> usuariosInteressados = interesseUsuarioService.findAllByInteresseId(interesse.getId());
 
-        if (!usuariosInteressados.isEmpty()) {
+        if (usuariosInteressados.size() > 1) {
             Grupo grupoExistente = grupoRepository.findByInteresseId(interesse.getId());
 
             if (grupoExistente != null) {
