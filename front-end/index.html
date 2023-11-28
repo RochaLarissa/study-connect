@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="../Style/Login.css">
+    <script type="module" src="./scripts/scriptLogin.js" defer></script>
          
     <title>Login e Registration</title> 
 </head>
@@ -92,6 +93,46 @@
         </div>
     </div>
 
-     <script src="../Scripts/scriptLogin.js"></script> 
+     <script>
+        function performLogin() {
+        // Obtenha os valores dos campos de entrada
+        var email = document.getElementById('emailInput').value;
+        var password = document.getElementById('passwordInput').value;
+    
+        // Crie um objeto para os dados do login
+        var loginData = {
+            email: email,
+            password: password
+        };
+    
+        // Realize uma solicitação AJAX para o endpoint de login no backend
+        fetch('http://localhost:8080/api/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao fazer login. Verifique suas credenciais.');
+            }
+            return response.json();
+        })
+        .then(responseData => {
+            // Capturar o token JWT retornado
+            var jwtToken = responseData.token;
+    
+            // Armazenar o token no localStorage
+            localStorage.setItem('jwtToken', jwtToken);
+    
+            // Faça algo aqui, como redirecionar para outra página
+            window.location.href = 'home.html';
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+    }
+     </script> 
 </body>
 </html>
