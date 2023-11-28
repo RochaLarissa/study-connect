@@ -19,4 +19,6 @@ public interface GrupoService {
     Grupo verificaGrupos(Interesse interesse, Usuario novoUsuario);
 
     List<GrupoResponse> findAllGruposByUsuarioId(Long usuarioId);
+
+    public List<GrupoResponse> findAllGrupos();
 }

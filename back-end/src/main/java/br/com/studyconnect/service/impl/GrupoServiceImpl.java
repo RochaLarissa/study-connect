@@ -97,4 +97,10 @@ public class GrupoServiceImpl implements GrupoService {
         return GrupoResponse.build(grupo);
     }
 
+    @Override
+    public List<GrupoResponse> findAllGrupos() {
+        var grupo = grupoRepository.findAll();
+        return GrupoResponse.build(grupo);
+    }
+
 }

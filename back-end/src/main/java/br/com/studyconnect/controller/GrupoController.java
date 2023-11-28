@@ -46,4 +46,10 @@ public class GrupoController {
         return ResponseEntity.ok(grupo);
     }
 
+    @GetMapping
+    public ResponseEntity<List<GrupoResponse>> findAll() {
+        var grupo = grupoService.findAllGrupos();
+        return ResponseEntity.ok(grupo);
+    }
+
 }
